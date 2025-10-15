@@ -1,0 +1,42 @@
+(Phase 1) Project overview
+
+This folder contains two  AI implementations for a small "apple collecting" simulation. 
+The python file is a fork project based on the go `apple_thief_ai.go` file, modified 
+to use a neural network and genetic algorithm to evolve better 
+apple-collecting creatures over generations.
+
+The purpose of Phase 1 is to provide a simple baseline environment and two contrasting AI approaches:
+ - a neuroevolution  simulation using a feed forward neural network + genetic algorithm
+ - a behavior/state-machine AI implemented with Raylib-style game loop helpers
+
+Files
+-----
+
+1) emergentai.py
+	 - Language: Python
+	 - Purpose: A full simulation of emergent behavior using a feedforward neural network for each
+		 creature and a simple genetic algorithm to evolve better collectors over generations.
+	 - Main Parts:
+		 - NeuralNetwork: small feed-forward net (tanh activation). Methods: predict, get_weights, set_weights, mutate.
+		 - Creature: perceives apples, a score/deposit zone, energy and enemies; it uses the NN outputs to turn, move,
+			 gather, and deposit apples. Responsible for movement, collision with world bounds, energy bookkeeping,
+			 and drawing itself to the Pygame screen.
+		 - Enemy: a simple chasing enemy that reduces creature energy when close.
+		 - Apple and ScoreZone: lightweight classes for world objects and drawing.
+		 - Genetic algorithm utilities: selection, crossover, reproduction, and a main loop that advances generations.
+	 - Dependencies: Python 3.x, pygame, numpy. Install with `pip install pygame numpy`.
+	 - Typical run command :
+		 - `python3 emergentai.py`
+
+	 - Configurable parameters (top of file): SCREEN_WIDTH, SCREEN_HEIGHT, POPULATION_SIZE, MAX_APPLES,
+		 GENERATION_TIME, MUTATION_RATE, MUTATION_STRENGTH, ELITISM_COUNT, energy constants, etc.
+
+	 
+2) apple_thief_ai.go
+	 - Language: Go
+	 - Purpose: A compact, deterministic state-machine AI for an apple-thief creature. This was apart of a Go assigmnet from a 
+            game programming course. 
+		 - AppleThiefAI struct: stores Creature reference, ScoreZone, world apples slice, state, timers, and helper fields.
+		 - States: Seeking, Gathering, Returning, Patrolling (implemented as constants and methods).
+		 - Methods: NewAppleThiefAI, SetState, Tick (per-frame update), TickSeek, TickGather, TickReturn, TickPatrol.
+
