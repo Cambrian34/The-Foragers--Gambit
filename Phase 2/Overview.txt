@@ -1,0 +1,49 @@
+# Phase 2 Overview: Extended Neuroevolution Experiments
+
+This phase of the project contains refined implementations and additional experimental conditions for the neuroevolution-based foraging simulation.
+
+## Core Files:
+- `emergentai copy.py` and `emergentai copy 2.py`: 
+  Iterations of the core AI logic, including neural network architectures and evolution mechanisms. These variants explore different network configurations and learning parameters.
+
+- `headlessv2.py`:
+  Optimized headless simulation runner for batch experiments. Designed for running large-scale evolution trials without visual output.
+
+- `headless_simulation_core.py`:
+  Core simulation logic separated from visualization components. Contains the fundamental mechanics of the foraging environment.
+
+- `experiment_runner.py`:
+  High-level experiment orchestration script. Manages multiple trial runs with different parameters and collects results.
+
+- `compare_values.py`:
+  Analysis utility for comparing results across different experimental conditions. Generates comparative visualizations.
+
+## Results Directory:
+Contains CSV files for different experimental conditions:
+- `baseline.csv`: Control scenario results
+- `higher_mutation.csv`: Results with increased mutation rates
+- `more_neurons.csv`: Results with expanded neural network architectures
+- `no_assistance.csv`: Results without cooperative behaviors
+- `no_auto_flee.csv`: Results with disabled automatic fleeing behavior
+
+## Plots Directory:
+Generated visualizations comparing different experimental conditions:
+- `avg_fitness_comparison.png`: Comparison of average fitness across conditions
+- `best_fitness_comparison.png`: Comparison of best-performing individuals
+- `creatures_remaining_comparison.png`: Survival rate analysis
+- `total_apples_deposited_comparison.png`: Resource collection efficiency comparison
+
+## Key Experimental Variables:
+- Neural network architecture variations
+- Mutation rate modifications
+- Presence/absence of cooperative behaviors
+- Automatic survival mechanisms (fleeing)
+
+## Running Experiments:
+1. Use `experiment_runner.py` for full experimental suites
+2. Use `headlessv2.py` for individual trial runs
+3. Use `compare_values.py` to analyze and visualize results
+
+Each experimental condition tests specific hypotheses about the emergence of cooperative behavior and survival strategies in the simulated environment.
+Slight changes have been made to the code to support these experiments, as indicated in the comments within the code files.
+Also based on the results, further refinements can be made for future phases.
